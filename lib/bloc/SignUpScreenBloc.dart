@@ -3,6 +3,7 @@ import 'package:flutter_firebase_app/model/AuthStatus.dart';
 import 'package:flutter_firebase_app/model/Authentication.dart';
 import 'package:flutter_firebase_app/repository/AuthenticationRepository.dart';
 import 'package:flutter_firebase_app/widget/screen/HomeScreen.dart';
+import 'package:flutter_firebase_app/widget/screen/SignUpScreen.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -30,6 +31,14 @@ class SignUpScreenBloc {
     });
   }
 
+  bool validateAndSave() {
+    final form = SignUpScreen.formKey.currentState;
+    if (form.validate()) {
+      form.save();
+      return true;
+    }
+    return false;
+  }
 
   bool isEmpty() {
     if (displayName.value.isEmpty || email.value.isEmpty || password.value.isEmpty) {

@@ -3,6 +3,7 @@ import 'package:flutter_firebase_app/model/AuthStatus.dart';
 import 'package:flutter_firebase_app/model/Authentication.dart';
 import 'package:flutter_firebase_app/repository/AuthenticationRepository.dart';
 import 'package:flutter_firebase_app/widget/screen/HomeScreen.dart';
+import 'package:flutter_firebase_app/widget/screen/SignInScreen.dart';
 import 'package:flutter_firebase_app/widget/screen/SignUpScreen.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:rxdart/rxdart.dart';
@@ -27,6 +28,15 @@ class SignInScreenBloc {
         _moveHomeScreen(context);
       }
     });
+  }
+
+  bool validateAndSave() {
+    final form = SignInScreen.formKey.currentState;
+    if (form.validate()) {
+      form.save();
+      return true;
+    }
+    return false;
   }
 
   bool isEmpty() {

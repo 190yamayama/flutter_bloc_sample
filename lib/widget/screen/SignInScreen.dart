@@ -28,20 +28,11 @@ class _SignInScreenState extends State<SignInScreen> {
 
 class SignInScreenPage extends StatelessWidget {
 
-  bool validateAndSave() {
-    final form = SignInScreen.formKey.currentState;
-    if (form.validate()) {
-      form.save();
-      return true;
-    }
-    return false;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login Screen"),
+        title: Text("Sign In Screen"),
       ),
       body: new Center(
         child: new SingleChildScrollView(
@@ -114,7 +105,10 @@ class SignInScreenPage extends StatelessWidget {
         text: "サインイン",
         height: 44.0,
         onPressed: () {
-          if (!validateAndSave() || bloc.isEmpty()) {
+          if (!bloc.validateAndSave()) {
+            return;
+          }
+          if (bloc.isEmpty()) {
             return;
           }
           bloc.signIn(context);
@@ -125,7 +119,7 @@ class SignInScreenPage extends StatelessWidget {
   Widget signUpButton(BuildContext context) {
     final bloc = Provider.of<SignInScreenBloc>(context);
     return new FlatButton(
-      key: new Key("need-account"),
+      key: new Key("signUp"),
       textColor: Colors.green,
       child: new Text(
           "初めて利用する方\n（サインアップ）",
