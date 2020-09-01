@@ -55,8 +55,8 @@ class SplashScreenBloc {
   void checkAuthenticationStatus() {
     _repository.checkAuthenticationStatus()
         .then((value) {
-      _authentication.add(value);
-    });
+          _authentication.add(value);
+        });
   }
 
   void dispose() {

@@ -27,8 +27,8 @@ class HomeScreenBloc {
     // 認証状態確認
     _repository.checkAuthenticationStatus()
         .then((value) {
-      _authentication.add(value);
-    });
+          _authentication.add(value);
+        });
   }
 
   void signOut(BuildContext context) {
