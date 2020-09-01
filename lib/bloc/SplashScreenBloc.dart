@@ -13,9 +13,11 @@ class SplashScreenBloc {
 
   // ignore: close_sinks
   final _authentication = BehaviorSubject<Authentication>();
-  final _repository = AuthenticationRepository();
 
-  SplashScreenBloc(BuildContext context) {
+  AuthenticationRepository _repository = AuthenticationRepository();
+
+  SplashScreenBloc(BuildContext context, [AuthenticationRepository repository]) {
+    _repository = repository ?? AuthenticationRepository();
 
     // 認証状態判定
     _authentication.listen((value) {

@@ -13,9 +13,10 @@ class HomeScreenBloc {
   // ignore: close_sinks
   final displayName = BehaviorSubject<String>();
 
-  final _repository = AuthenticationRepository();
+  AuthenticationRepository _repository = AuthenticationRepository();
 
-  HomeScreenBloc(BuildContext context) {
+  HomeScreenBloc(BuildContext context, [AuthenticationRepository repository]) {
+    _repository = repository ?? AuthenticationRepository();
     _authentication.listen((value) {
       String name = value.firebaseUser?.displayName ?? "";
       displayName.add("$name さん　ホームですよ〜");
