@@ -6,7 +6,7 @@ FirebaseのAuthenticationサンプルです
 
 FirebaseのAuthenticationを使用してemailアドレスでサインイン・サインアウトを実行するサンプル。
 
-状態管理にChangeNotifierProviderを採用したバージョン。
+状態管理にBLocを採用したバージョン。
 
 ## 流れ
 
