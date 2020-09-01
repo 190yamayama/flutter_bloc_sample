@@ -8,9 +8,7 @@ import 'package:rxdart/rxdart.dart';
 
 class HomeScreenBloc {
 
-  // ignore: close_sinks
   final _authentication = BehaviorSubject<Authentication>();
-  // ignore: close_sinks
   final displayName = BehaviorSubject<String>();
 
   AuthenticationRepository _repository = AuthenticationRepository();

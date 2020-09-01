@@ -10,13 +10,9 @@ import 'package:rxdart/rxdart.dart';
 
 class SignInScreenBloc {
 
-  // ignore: close_sinks
   final _authentication = BehaviorSubject<Authentication>();
-  // ignore: close_sinks
   final email = BehaviorSubject<String>();
-  // ignore: close_sinks
   final password = BehaviorSubject<String>();
-  // ignore: close_sinks
   final errorMessage = BehaviorSubject<String>();
 
   AuthenticationRepository _repository = AuthenticationRepository();

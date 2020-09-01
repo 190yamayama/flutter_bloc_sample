@@ -11,7 +11,6 @@ import 'package:rxdart/rxdart.dart';
 
 class SplashScreenBloc {
 
-  // ignore: close_sinks
   final _authentication = BehaviorSubject<Authentication>();
 
   AuthenticationRepository _repository = AuthenticationRepository();
