@@ -19,9 +19,10 @@ class SignInScreenBloc {
   // ignore: close_sinks
   final errorMessage = BehaviorSubject<String>();
 
-  final _repository = AuthenticationRepository();
+  AuthenticationRepository _repository = AuthenticationRepository();
 
-  SignInScreenBloc(BuildContext context) {
+  SignInScreenBloc(BuildContext context, [AuthenticationRepository repository]) {
+    _repository = repository ?? AuthenticationRepository();
     _authentication.listen((value) {
       errorMessage.add(value.errorMessage);
       if (value.authStatus == AuthStatus.signedIn) {
